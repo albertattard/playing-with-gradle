@@ -64,6 +64,10 @@
     - [theme-park-rides](theme-park-rides)
     - [theme-park-rides-kotlin](theme-park-rides-kotlin)
 
+- Dependencies
+
+    - [repositories-dependencies](repositories-dependencies)
+
 - Inputs and outputs
 
     - [tasks-inputs-outputs](tasks-inputs-outputs)
