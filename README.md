@@ -11,7 +11,7 @@
 - Phases
 
   | Phase          | Source                       |
-    |----------------|------------------------------|
+  |----------------|------------------------------|
   | Initialisation | `settings.gradle` (required) |
   | Configuration  | `build.gradle` (optional)    |
   | Execution      | Tasks names (optional)       |
@@ -63,6 +63,10 @@
 
     - [theme-park-rides](theme-park-rides)
     - [theme-park-rides-kotlin](theme-park-rides-kotlin)
+
+- Inputs and outputs
+
+    - [tasks-inputs-outputs](tasks-inputs-outputs)
 
 - Kotlin configuration
 

@@ -40,7 +40,8 @@ tasks.register('zipDescriptions', Zip) {
     dependsOn tasks.named('generateDescriptions')
 
     // The task is defined later on.
-    finalizedBy confirmFinish
+    // finalizedBy confirmFinish
+    finalizedBy tasks.named('confirmFinish')
 }
 
 
