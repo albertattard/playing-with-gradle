@@ -8,7 +8,7 @@ defaultTasks 'zipDescriptions'
 
 tasks.register('generateDescriptions', Copy) {
     group 'Theme park'
-    description 'Gerenates descriptions including tocken substitution'
+    description 'Generates descriptions including token substitution'
     from 'descriptions'
     into "$buildDir/descriptions"
     filter(ReplaceTokens, tokens: [THEME_PARK_NAME: 'Grelephant\'s Wonder World'])
@@ -16,7 +16,7 @@ tasks.register('generateDescriptions', Copy) {
 
 tasks.register('zipDescriptions', Zip) {
     group 'Theme park'
-    description 'Compres the descriptions into a singel ZIP file'
+    description 'Compress the descriptions into a single ZIP file'
     from "$buildDir/descriptions"
     destinationDirectory = buildDir
     archiveFileName = 'descriptions.zip'

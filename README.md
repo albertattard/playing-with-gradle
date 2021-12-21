@@ -3,6 +3,7 @@
 ## References
 
 - [Tom Gregory Gradle Hero course](https://learn.tomgregory.com/courses/gradle-hero)
+- [Migrating build logic from Groovy to Kotlin](https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html)
 
 ## Tooling
 
@@ -55,6 +56,10 @@
 
     - [theme-park-rides](theme-park-rides)
 
+- Kotlin configuration
+
+    - [theme-park-rides-kotlin](theme-park-rides-kotlin)
+
 - Life cycle
 
     - [gradle-init-test](gradle-init-test)
@@ -64,7 +69,7 @@
     - [30-second-project](30-second-project)
     - [gradle-init-test](gradle-init-test)
 
-## Pending questions
+## Questions
 
 1. Why some properties need and equals while others not?
 
@@ -78,3 +83,8 @@
    ```
 
    Copied from [theme-park-rides/build.gradle](theme-park-rides/build.gradle) file.
+
+   **Possible answer**
+
+   The `from "$buildDir/descriptions"` is a method call, equivalent to `from("$buildDir/descriptions")`, 
+   while `destinationDirectory = buildDir` is simply assigning a property.
