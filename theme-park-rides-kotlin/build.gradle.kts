@@ -43,6 +43,9 @@ val zipDescriptions by tasks.registering(Zip::class) {
     // dependsOn.add("generateDescriptions")
     dependsOn.add(generateDescriptionsTask)
     // dependsOn.add(generateDescriptions)
+
+    // The task is defined later on.
+    finalizedBy(tasks.named("confirmFinish"))
 }
 
 
@@ -73,12 +76,12 @@ tasks.register("sayBye") {
 //  $ ./gradlew sW --console=verbose
 // ---------------------------------------------------------------------------------------------------------------------
 tasks.register("sayWellDone") {
-    val grade = 79;
+    val grade = 79
     doLast {
         println("Well done!!")
     }
     onlyIf {
-        grade >= 80;
+        grade >= 80
     }
 }
 
@@ -105,4 +108,24 @@ tasks.clean {
     doLast {
         println("Spic and Span!!")
     }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Run a task (referred to as final-task) once another task (referred to as main-task) finishes, even if the final-task
+// was never invoked.  The final-task is always executed, even if the main-task fails.  This is very similar to the Java
+// `finally` block in the try/catch statement.  Refer to Example 2 in the the
+// [Jacoco Plugin documentation page](https://docs.gradle.org/current/userguide/jacoco_plugin.html) for a practical
+// example of this.
+// ---------------------------------------------------------------------------------------------------------------------
+tasks.register("confirmFinish") {
+    doLast {
+        println("Finished!!")
+    }
+
+    // Add this to make a bidirectional relation.  When the zipDescriptions tasks is executed, it is finalized by this
+    // task (defined in the zipDescriptions configuration), and if the confirmFinish task is executed, the
+    // zipDescriptions task is executed first (even if it is not included in the tasks to be executed) and then it runs
+    // this task.
+    dependsOn.add(tasks.named("zipDescriptions"))
 }
