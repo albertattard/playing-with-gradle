@@ -4,13 +4,14 @@
 
 - [Tom Gregory Gradle Hero course](https://learn.tomgregory.com/courses/gradle-hero)
 - [Migrating build logic from Groovy to Kotlin](https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html)
+- [Tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html)
 
 ## Tooling
 
 - Phases
 
   | Phase          | Source                       |
-  |----------------|------------------------------|
+    |----------------|------------------------------|
   | Initialisation | `settings.gradle` (required) |
   | Configuration  | `build.gradle` (optional)    |
   | Execution      | Tasks names (optional)       |
@@ -49,12 +50,19 @@
   $ ./gradlew --no-daemon
   ```
 
+- Inspect the contents of a ZIP/JAR file
+
+  ```shell
+  $ jar tf file.zip
+  ```
+
 ## Examples
 
 - Custom Gradle tasks (based on [copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
   and [zip](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Zip.html))
 
     - [theme-park-rides](theme-park-rides)
+    - [theme-park-rides-kotlin](theme-park-rides-kotlin)
 
 - Kotlin configuration
 
@@ -86,5 +94,5 @@
 
    **Possible answer**
 
-   The `from "$buildDir/descriptions"` is a method call, equivalent to `from("$buildDir/descriptions")`, 
+   The `from "$buildDir/descriptions"` is a method call, equivalent to `from("$buildDir/descriptions")`,
    while `destinationDirectory = buildDir` is simply assigning a property.

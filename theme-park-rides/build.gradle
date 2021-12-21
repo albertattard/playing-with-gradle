@@ -6,6 +6,20 @@ plugins {
 
 defaultTasks 'zipDescriptions'
 
+// ---------------------------------------------------------------------------------------------------------------------
+// Class based tasks
+// ---------------------------------------------------------------------------------------------------------------------
+
+// ---
+// **NOTE** about performance!
+// ---
+// This is an older approach (referred to as legacy) and it's not recommended anymore as it is slower and included here
+// for completion. When using the legacy approach, the task is configure even when this is not used, as the
+// configuration of the task happens during the Gradle configuration phase.  Using the new approach, the task
+// configuration is delayed to the Gradle execution phase and is only done if the task needs to run.
+// ---
+// Prefer the `tasks.register()` instead
+// task generateDescriptions(type: Copy) {
 tasks.register('generateDescriptions', Copy) {
     group 'Theme park'
     description 'Generates descriptions including token substitution'
@@ -20,5 +34,79 @@ tasks.register('zipDescriptions', Zip) {
     from "$buildDir/descriptions"
     destinationDirectory = buildDir
     archiveFileName = 'descriptions.zip'
+    // When using the older approach, we can refer to the task directory instead of using a string.
+    // dependsOn generateDescriptions
     dependsOn 'generateDescriptions'
+    dependsOn tasks.named('generateDescriptions')
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Ad-hoc  tasks
+// ---------------------------------------------------------------------------------------------------------------------
+tasks.register('sayHello') {
+    doLast {
+        println 'Hello!!'
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Disable tasks (these are always skipped even when called directly)
+//  $ ./gradlew sB --console=verbose
+// ---------------------------------------------------------------------------------------------------------------------
+tasks.register('sayBye') {
+    doLast {
+        println 'Bye!!'
+    }
+    enabled false
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Enable the task based on a condition
+//  $ ./gradlew sW --console=verbose
+// ---------------------------------------------------------------------------------------------------------------------
+tasks.register('sayWellDone') {
+    def grade = 79;
+    doLast {
+        println 'Well done!!'
+    }
+    onlyIf {
+        grade >= 80;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Fetch a task by its name, without creating it if missing.  This is ideal for configuring existing tasks, such as
+// change the directory where the files are saved
+// ---------------------------------------------------------------------------------------------------------------------
+
+// This returns the task and configures it during the Gradle configuration phase (even when the task is not required),
+// making it slower (see note at the top).
+// tasks.getByName('generateDescriptions') {
+tasks.named('generateDescriptions') {
+    into "$buildDir/interpolated"
+}
+tasks.named('zipDescriptions') {
+    from "$buildDir/interpolated"
+    archiveFileName = 'interpolated.zip'
+}
+
+// Default tasks can be configured through their name, but this will configure the task during the Gradle configuration
+// phase (even when the task is not required), making it slower (see note at the top).
+tasks.clean {
+    doLast {
+        println 'Spic and Span!!'
+    }
+}
+
+// We can simply call the task by its name in Groovy.  There is no equivalent in the Kotlin DSL.  As in the example
+// above, the task is configured during the Gradle configuration phase (even when the task is not required), making it
+// slower (see note at the top).
+generateDescriptions {
+    doFirst {
+        println 'Interpolating the descriptions!!'
+    }
 }
