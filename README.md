@@ -28,6 +28,26 @@
   $ ./gradlew build --console=verbose
   ```
 
+- Gradle daemons
+
+  List the running (`--status`)
+
+  ```shell
+  $ ./gradlew --status
+  ```
+
+  Stop the running daemons (`--stop`)
+
+  ```shell
+  $ ./gradlew --stop
+  ```
+
+  Force the build (or any other task) not to use the daemon (`--no-daemon`)
+
+  ```shell
+  $ ./gradlew --no-daemon
+  ```
+
 ## Examples
 
 - Custom Gradle tasks (based on [copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
@@ -35,9 +55,14 @@
 
     - [theme-park-rides](theme-park-rides)
 
+- Life cycle
+
+    - [gradle-init-test](gradle-init-test)
+
 - Minimal Gradle (no wrapper)
 
     - [30-second-project](30-second-project)
+    - [gradle-init-test](gradle-init-test)
 
 ## Pending questions
 

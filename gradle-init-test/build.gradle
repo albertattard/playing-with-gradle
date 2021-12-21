@@ -1,0 +1,7 @@
+println 'Configuration phase'
+
+tasks.register('myTask'){
+    doLast {
+        println 'Execution phase'
+    }
+}
