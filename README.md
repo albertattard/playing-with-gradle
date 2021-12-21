@@ -6,6 +6,14 @@
 
 ## Tooling
 
+- Phases
+
+  | Phase          | Source                       |
+  |----------------|------------------------------|
+  | Initialisation | `settings.gradle` (required) |
+  | Configuration  | `build.gradle` (optional)    |
+  | Execution      | Tasks names (optional)       |
+
 - Set gradle wrapper version
 
   ```shell
@@ -22,14 +30,14 @@
 
 ## Examples
 
-- Minimal Gradle examples
-
-    - [30-second-project](30-second-project)
-
-- Custom Gradle tasks ([copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
+- Custom Gradle tasks (based on [copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
   and [zip](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Zip.html))
 
     - [theme-park-rides](theme-park-rides)
+
+- Minimal Gradle (no wrapper)
+
+    - [30-second-project](30-second-project)
 
 ## Pending questions
 
