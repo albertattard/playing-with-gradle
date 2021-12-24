@@ -105,6 +105,10 @@
 
     - [gradle-init-test](gradle-init-test)
 
+- Maven publish
+
+    - [theme-park-rides-status](theme-park-rides-status)
+
 - Minimal Gradle (no wrapper)
 
     - [30-second-project](30-second-project)

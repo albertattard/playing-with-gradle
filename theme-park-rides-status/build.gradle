@@ -1,6 +1,7 @@
 plugins {
     id 'application'
     id 'jvm-test-suite'
+    id 'maven-publish'
 }
 
 // The application requires a command line argument, which can be passed using the `--args` followed by the arguments,
@@ -98,3 +99,21 @@ tasks.named('processResources') {
 //tasks.named("check") {
 //    dependsOn tasks.named("testOn11")
 //}
+
+// TODO: need to add the group id and version.
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url ''
+            credentials {
+                username ''
+                password System.env.REPOSITORY_USER_PASSWORD
+            }
+        }
+    }
+}
