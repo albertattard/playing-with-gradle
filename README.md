@@ -25,10 +25,16 @@
 - Set gradle wrapper version
 
   ```shell
-  $ ./gradlew wrapper --gradle-version=7.3.2
+  $ ./gradlew wrapper --gradle-version=7.3.3
   ```
 
   See the [Gradle Wrapper page](https://docs.gradle.org/current/userguide/gradle_wrapper.html) for more information.
+
+- List the Gradle and Java versions
+
+  ```shell
+  $ ./gradlew --version
+  ```
 
 - List the tasks that are executed (`--console=verbose`)
 

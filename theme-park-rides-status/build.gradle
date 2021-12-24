@@ -1,11 +1,41 @@
 plugins {
     id 'application'
+    id 'jvm-test-suite'
 }
 
 // The application requires a command line argument, which can be passed using the `--args` followed by the arguments,
 //  > ./gradlew run --args logflume
 application {
     mainClass = 'aa.RideStatusService'
+}
+
+testing {
+    suites {
+        integrationTest(JvmTestSuite) {
+            dependencies {
+                implementation project
+            }
+
+            targets {
+                all {
+                    testTask.configure {
+                        shouldRunAfter(test)
+                    }
+                }
+            }
+        }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+        vendor = JvmVendorSpec.ORACLE
+    }
+}
+
+tasks.named('check') {
+    dependsOn(testing.suites.integrationTest)
 }
 
 tasks.named('jar') {
@@ -48,3 +78,23 @@ tasks.withType(JavaCompile).configureEach {
 tasks.named('processResources') {
     include '**/*.txt'
 }
+
+// I tried to build and test the project with 2 versions of Java at the same time.  This approach did not work for me
+//tasks.register("compileOn11", JavaCompile) {
+//    javaCompiler = javaToolchains.launcherFor {
+//        languageVersion = JavaLanguageVersion.of(11)
+//        vendor = JvmVendorSpec.ADOPTOPENJDK
+//    }
+//}
+//
+//tasks.register("testOn11", Test) {
+//    javaLauncher = javaToolchains.launcherFor {
+//        languageVersion = JavaLanguageVersion.of(11)
+//        vendor = JvmVendorSpec.ADOPTOPENJDK
+//    }
+//    dependsOn tasks.named("compileOn11");
+//}
+//
+//tasks.named("check") {
+//    dependsOn tasks.named("testOn11")
+//}
