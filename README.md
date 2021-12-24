@@ -61,6 +61,12 @@
   $ jar tf file.zip
   ```
 
+- Start application in debug mode (`--debug-jvm`)
+
+  ```shell
+  $ ./gradlew runJar --debug-jvm
+  ```
+
 ## Examples
 
 - Configure task options

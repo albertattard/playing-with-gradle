@@ -1,11 +1,27 @@
 plugins {
-    id 'java'
+    id 'application'
 }
 
-tasks.named("jar") {
+// The application requires a command line argument, which can be passed using the `--args` followed by the arguments,
+//  > ./gradlew run --args logflume
+application {
+    mainClass = 'aa.RideStatusService'
+}
+
+tasks.named('jar') {
     manifest {
         attributes('Main-Class': 'aa.RideStatusService')
     }
+
+    // Use a custom Jar file name
+    archiveFileName = 'theme-park.jar'
+}
+
+tasks.register('runJar', JavaExec) {
+    classpath tasks.named('jar').map { it.outputs }
+    classpath configurations.runtimeClasspath
+    mainClass = 'aa.RideStatusService'
+    args 'teacups'
 }
 
 repositories {
@@ -13,6 +29,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
 }
 
@@ -30,9 +47,4 @@ tasks.withType(JavaCompile).configureEach {
 // Filter the files copied by the 'processResources' task
 tasks.named('processResources') {
     include '**/*.txt'
-}
-
-// Use a custom Jar file name
-tasks.named('jar') {
-    archiveFileName = 'theme-park.jar'
 }
