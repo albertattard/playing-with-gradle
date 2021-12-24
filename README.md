@@ -10,6 +10,7 @@
       spicing up your java
     - [MapStruct](https://mapstruct.org/) - a code generator that greatly simplifies the implementation of mappings
       between Java bean types based on a convention over configuration approach
+- [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin)
 
 ## Tooling
 
@@ -85,6 +86,10 @@
 - Inputs and outputs
 
     - [tasks-inputs-outputs](tasks-inputs-outputs)
+
+- Integration tests
+
+    - [theme-park-rides-status](theme-park-rides-status)
 
 - Kotlin configuration
 
