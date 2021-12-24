@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+tasks.named("jar") {
+    manifest {
+        attributes('Main-Class': 'aa.RideStatusService')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+// Configure the verbose options to just one task with the name 'compileJava'
+// tasks.named('compileJava') {
+// or configure all tasks of type JavaCompile, which also includes tests (task 'compileTestJava')
+tasks.withType(JavaCompile).configureEach {
+    options.verbose = true;
+}
+
+// Filter the files copied by the 'processResources' task
+tasks.named('processResources') {
+    include '**/*.txt'
+}
+
+// Use a custom Jar file name
+tasks.named('jar') {
+    archiveFileName = 'theme-park.jar'
+}

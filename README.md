@@ -5,6 +5,11 @@
 - [Tom Gregory Gradle Hero course](https://learn.tomgregory.com/courses/gradle-hero)
 - [Migrating build logic from Groovy to Kotlin](https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html)
 - [Tasks](https://docs.gradle.org/current/dsl/org.gradle.api.Task.html)
+- Annotation Processors
+    - [Lombok](https://projectlombok.org/) - a java library that automatically plugs into your editor and build tools,
+      spicing up your java
+    - [MapStruct](https://mapstruct.org/) - a code generator that greatly simplifies the implementation of mappings
+      between Java bean types based on a convention over configuration approach
 
 ## Tooling
 
@@ -57,6 +62,9 @@
   ```
 
 ## Examples
+
+- Configure task options
+    - [theme-park-rides-status](theme-park-rides-status)
 
 - Custom Gradle tasks (based on [copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
   and [zip](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Zip.html))
