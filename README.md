@@ -81,6 +81,24 @@
   $ ./gradlew <task> -P<property-name>=<property-value>
   ```
 
+- List projects
+
+  ```shell
+  $ ./gradlew projects
+  ```
+
+- Run command on a single project (in multi-project)
+
+  ```shell
+  $ ./gradlew :app:clean
+  ```
+
+  or (without the starting `:`)
+
+  ```shell
+  $ ./gradlew app:clean
+  ```
+
 ## Examples
 
 - Configure task options
