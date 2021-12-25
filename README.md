@@ -11,6 +11,7 @@
     - [MapStruct](https://mapstruct.org/) - a code generator that greatly simplifies the implementation of mappings
       between Java bean types based on a convention over configuration approach
 - [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin)
+- [Build Environment](https://docs.gradle.org/current/userguide/build_environment.html)
 
 ## Tooling
 
@@ -71,7 +72,13 @@
 - Start application in debug mode (`--debug-jvm`)
 
   ```shell
-  $ ./gradlew runJar --debug-jvm
+  $ ./gradlew <task> --debug-jvm
+  ```
+
+- Pass project properties
+
+  ```shell
+  $ ./gradlew <task> -P<property-name>=<property-value>
   ```
 
 ## Examples
@@ -113,6 +120,9 @@
 
     - [30-second-project](30-second-project)
     - [gradle-init-test](gradle-init-test)
+
+- Project properties
+    - [project-properties](project-properties)
 
 ## Questions
 

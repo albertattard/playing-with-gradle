@@ -1,0 +1,18 @@
+// Options for using properties (from highest to lowest priority)
+// > ./gradlew myProp -Pusername='Albert Attard'
+// > ./gradlew myProp -Dorg.gradle.project.username='Albert Attard'
+// > ORG_GRADLE_PROJECT_username='Albert Attard' ./gradlew myProp
+// (user home directory) ~/gradle.properties - username='Albert Attard' - > ./gradlew myProp
+// (project rool) ./gradle.properties - username='Albert Attard' - > ./gradlew myProp
+tasks.register('myProp') {
+    // There are three options.
+    doLast {
+        // A) using a variable name (fails if missing)
+        // println username
+        // B) using the property() method (fails if missing)
+        // println project.property('username')
+        // C) using the findProperty() method (returns null if missing).
+        //    Use the Elvis operator to provide a default value
+        println project.findProperty('username') ?: 'No name provided'
+    }
+}
