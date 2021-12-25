@@ -14,5 +14,9 @@ tasks.register('myProp') {
         // C) using the findProperty() method (returns null if missing).
         //    Use the Elvis operator to provide a default value
         println project.findProperty('username') ?: 'No name provided'
+
+        if (project.hasProperty('username')) {
+            println 'The username is set!!'
+        }
     }
 }
