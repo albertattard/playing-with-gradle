@@ -12,6 +12,7 @@
       between Java bean types based on a convention over configuration approach
 - [Gradle TestSets plugin](https://github.com/unbroken-dome/gradle-testsets-plugin)
 - [Build Environment](https://docs.gradle.org/current/userguide/build_environment.html)
+- [The Java Library Plugin](https://docs.gradle.org/current/userguide/java_library_plugin.html)
 
 ## Tooling
 
@@ -102,6 +103,7 @@
 ## Examples
 
 - Configure task options
+
     - [theme-park-rides-status](theme-park-rides-status)
 
 - Custom Gradle tasks (based on [copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
@@ -125,6 +127,8 @@
 - Kotlin configuration
 
     - [theme-park-rides-kotlin](theme-park-rides-kotlin)
+    - [build-script-demo-kotlin](build-script-demo-kotlin)
+    - [repositories-dependencies-kotlin](repositories-dependencies-kotlin)
 
 - Life cycle
 
@@ -139,7 +143,13 @@
     - [30-second-project](30-second-project)
     - [gradle-init-test](gradle-init-test)
 
+- Multi-project
+
+    - [multi-project-example](multi-project-example)
+    - [theme-park-manager](theme-park-manager)
+
 - Project properties
+
     - [project-properties](project-properties)
 
 ## Questions
