@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+    id 'aa.themepark-convensions'
+}
+
+dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+}
+
+// Filter the files copied by the 'processResources' task
+tasks.named('processResources') {
+    include '**/*.txt'
+}

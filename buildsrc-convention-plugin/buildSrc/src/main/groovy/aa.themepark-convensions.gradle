@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    id 'jvm-test-suite'
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter('5.8.2')
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}

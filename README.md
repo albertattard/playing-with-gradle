@@ -102,6 +102,11 @@
 
 ## Examples
 
+- `buildSrc`
+
+    - [buildsrc-convention-plugin](buildsrc-convention-plugin)
+    - [multiple-subprojects](multiple-subprojects)
+
 - Configure task options
 
     - [theme-park-rides-status](theme-park-rides-status)
@@ -148,6 +153,8 @@
 
     - [multi-project-example](multi-project-example)
     - [theme-park-manager](theme-park-manager)
+    - [buildsrc-convention-plugin](buildsrc-convention-plugin)
+    - [multiple-subprojects](multiple-subprojects)
 
 - Project properties
 

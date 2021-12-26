@@ -1,0 +1,5 @@
+rootProject.name = 'buildsrc-convention-plugin'
+
+include('api')
+include('service')
+include('ui')
