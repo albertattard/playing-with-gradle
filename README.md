@@ -106,10 +106,12 @@
 
     - [buildsrc-convention-plugin](buildsrc-convention-plugin)
     - [multiple-subprojects](multiple-subprojects)
+    - [custom-tasks](custom-tasks)
 
 - Configure task options
 
     - [theme-park-rides-status](theme-park-rides-status)
+    - [custom-tasks](custom-tasks)
 
 - Custom Gradle tasks (based on [copy](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Copy.html)
   and [zip](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Zip.html))
@@ -117,6 +119,7 @@
     - [theme-park-rides](theme-park-rides)
     - [theme-park-rides-kotlin](theme-park-rides-kotlin)
     - [working-with-files](working-with-files)
+    - [custom-tasks](custom-tasks)
 
 - Dependencies
 
