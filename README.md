@@ -54,6 +54,22 @@
   the [execution options](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_execution_options)
   for more details.
 
+- List the dependencies for a given configuration
+
+  ```shell
+  $ ./gradlew dependencies --configuration compileClasspath
+  ```
+
+- Determine which version of a conflicting dependency was used
+
+  ```shell
+  $ ./gradlew dependencyInsight --dependency org.slf4j:slf4j-api --configuration compileClasspath
+  ```
+
+  See
+  the [viewing and debugging dependencies](https://docs.gradle.org/current/userguide/viewing_debugging_dependencies.html)
+  page for more details
+
 - Gradle daemons
 
   List the running (`--status`)
@@ -71,7 +87,7 @@
   Force the build (or any other task) not to use the daemon (`--no-daemon`)
 
   ```shell
-  $ ./gradlew --no-daemon
+  $ ./gradlew build --no-daemon
   ```
 
 - Inspect the contents of a ZIP/JAR file
