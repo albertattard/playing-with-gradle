@@ -1,0 +1,37 @@
+plugins {
+    id 'base'
+}
+
+/* Copied the files and preserving the directory structure */
+tasks.register('copyFixtures', Copy) {
+    // Copy a single file
+    // from 'fixtures/a.txt'
+    // from file('fixtures/a.txt')
+    // from layout.projectDirectory.file('fixtures/a.txt')
+    // Copy a directory
+    // from 'fixtures'
+    // from file('fixtures')
+    // from layout.projectDirectory.dir('fixtures')
+    // from fileTree(layout.projectDirectory.dir('fixtures'))
+    from fileTree(layout.projectDirectory) {
+        include 'fixtures/**'
+    }
+
+    // into "$buildDir/fixtures"
+    // into layout.buildDirectory.dir('fixtures')
+    // This is required when using the `from fileTree(layout.projectDirectory) { include 'fixtures/**' }`
+    into layout.buildDirectory
+}
+
+/* Copied the files without preserving the directory structure */
+tasks.register('flatCopy', Copy) {
+    // from files(
+    //         'fixtures/a.txt',
+    //         'fixtures/b.txt',
+    //         'fixtures/sub-dir/c.txt')
+    from fileTree(layout.projectDirectory) {
+        include 'fixtures/**'
+    }.files
+
+    into layout.buildDirectory.dir('fixtures')
+}
