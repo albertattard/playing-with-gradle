@@ -44,6 +44,16 @@
   $ ./gradlew build --console=verbose
   ```
 
+- List the tasks that will be executed without executing them (`--dry-run`)
+
+  ```shell
+  $ ./gradlew build --dry-run
+  ```
+
+  See
+  the [execution options](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_execution_options)
+  for more details.
+
 - Gradle daemons
 
   List the running (`--status`)
@@ -143,6 +153,10 @@
 
     - [gradle-init-test](gradle-init-test)
 
+- Logging
+
+    - [logging](logging)
+
 - Maven publish
 
     - [theme-park-rides-status](theme-park-rides-status)
@@ -162,6 +176,10 @@
 - Project properties
 
     - [project-properties](project-properties)
+
+- Task Graph
+
+    - [task-graph](task-graph)
 
 ## Questions
 

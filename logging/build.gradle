@@ -1,0 +1,6 @@
+tasks.register('logTest') {
+    doLast {
+        // > ./gradlew lT --info | grep 'Some information'
+        logger.info 'Some information'
+    }
+}
