@@ -1,6 +1,6 @@
 println 'Configuration phase'
 
-tasks.register('myTask'){
+tasks.register('myTask') {
     doLast {
         println 'Execution phase'
     }
