@@ -27,17 +27,17 @@ class HashFileTaskTest {
     @TempDir
     File testProjectDir;
 
-    private File settings;
-    private File buildScript;
-    private File buildScr;
-    private File fixtures;
+    private File settingsFile;
+    private File buildScriptFile;
+    private File buildScrDir;
+    private File fixturesFile;
 
     @BeforeEach
     void setup() {
-        settings = new File(testProjectDir, "settings.gradle");
-        buildScript = new File(testProjectDir, "build.gradle");
-        buildScr = new File(testProjectDir, "buildSrc");
-        fixtures = new File(testProjectDir, "fixtures/sample.txt");
+        settingsFile = new File(testProjectDir, "settings.gradle");
+        buildScriptFile = new File(testProjectDir, "build.gradle");
+        buildScrDir = new File(testProjectDir, "buildSrc");
+        fixturesFile = new File(testProjectDir, "fixtures/sample.txt");
     }
 
     @Test
@@ -80,10 +80,10 @@ class HashFileTaskTest {
                 }
                 """;
 
-        writeFile(settings, "rootProject.name = 'hash-file'");
-        writeFile(buildScript, String.format(script, configuration));
-        writeFile(fixtures, readFile(new File("src/test/resources/fixtures/sample.txt")));
-        copyDir(new File("src/main"), new File(buildScr, "src/main"));
+        writeFile(settingsFile, "rootProject.name = 'hash-file'");
+        writeFile(buildScriptFile, String.format(script, configuration));
+        writeFile(fixturesFile, readFile(new File("src/test/resources/fixtures/sample.txt")));
+        copyDir(new File("src/main"), new File(buildScrDir, "src/main"));
 
         final BuildResult result = GradleRunner.create()
                 .withProjectDir(testProjectDir)
