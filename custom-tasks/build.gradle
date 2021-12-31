@@ -1,5 +1,6 @@
 import aa.FileDiffTask
 import aa.HashFileTask
+import aa.HelloTask
 
 plugins {
     id 'base'
@@ -8,6 +9,10 @@ plugins {
 tasks.register('fileDiff', FileDiffTask) {
     a = project.file('fixtures/a.txt')
     b = project.file('fixtures/b.txt')
+}
+
+tasks.register('hello', HelloTask) {
+    caption = 'there!!'
 }
 
 tasks.register('sha', HashFileTask) {
