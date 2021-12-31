@@ -1,0 +1,15 @@
+repositories {
+    mavenCentral()
+}
+
+testing {
+    suites {
+        test {
+            useJUnitJupiter('5.8.2')
+        }
+    }
+}
+
+dependencies {
+    testImplementation gradleTestKit()
+}

@@ -1,6 +1,16 @@
 import aa.FileDiffTask
+import aa.HashFileTask
+
+plugins {
+    id 'base'
+}
 
 tasks.register('fileDiff', FileDiffTask) {
     a = project.file('fixtures/a.txt')
     b = project.file('fixtures/b.txt')
+}
+
+tasks.register('sha', HashFileTask) {
+    file = project.file('fixtures/a.txt')
+    output = project.layout.buildDirectory.file('fixtures/a.txt.sha256').get().asFile
 }
